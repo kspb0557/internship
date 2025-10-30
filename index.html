@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internship Form</title>
+  <style>
+    :root {
+      --base-font: clamp(14px, 1.2vw, 18px);
+      --heading-font: clamp(22px, 2.5vw, 32px);
+      --label-font: clamp(15px, 1.3vw, 18px);
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #dfe9f3, #ffffff);
+      color: #222;
+      margin: 0;
+      padding: 0;
+      font-size: var(--base-font);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      font-size: var(--heading-font);
+      letter-spacing: 1px;
+    }
+
+    hr {
+      width: 80%;
+      border: 1px solid #fff;
+      opacity: 0.5;
+      margin-bottom: 30px;
+    }
+
+    form {
+      width: 80%;
+      max-width: 600px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      margin: 15px 0 8px;
+      font-weight: bold;
+      font-size: var(--label-font);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="file"],
+	input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      font-size: var(--base-font);
+      background-color: #f8f8f8;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 6px;
+      transform: scale(1.1);
+    }
+
+    input[type="submit"] {
+      background: #00d4ff;
+      border: none;
+      color: black;
+      padding: 12px;
+      width: 100%;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: clamp(15px, 1.3vw, 18px);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background: #00b5e0;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    .error {
+      color: red;
+      font-size: clamp(12px, 1vw, 14px);
+      margin-top: -8px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        width: 90%;
+        padding: 15px;
+      }
+
+      input[type="submit"] {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>INTERNSHIP</h1>
+  <hr color>
+
+ <form
+  id="internshipForm"
+  action="http://localhost:3000/submit"
+  method="POST"
+  enctype="multipart/form-data"
+>
+
+    <p>Name:</p>
+    <input type="text" name="Name" required />
+    <div class="error" id="errorName"></div>
+
+    <p>Email:</p>
+    <input type="email" name="Email" required />
+    <div class="error" id="errorEmail"></div>
+<p>Mobile Number:</p>
+<input type="tel" name="MobileNumber" pattern="[6-9]\d{9}" required />
+<div class="error" id="errorMobileNumber"></div>
+    <p>Password:</p>
+    <input type="password" name="password" id="password" required />
+    <div class="error" id="errorPassword"></div>
+
+    <p>Confirm Password:</p>
+    <input type="password" name="Confirmpassword" id="Confirmpassword" required />
+    <div class="error" id="errorConfirmpassword"></div>
+
+    <p>Age:</p>
+    <input type="number" name="Age" min="18" max="60" required />
+    <div class="error" id="errorAge"></div>
+
+    <p>Gender:</p>
+    <label><input type="radio" name="gender" value="Male" />Male</label>
+    <label><input type="radio" name="gender" value="Female" />Female</label>
+    <div class="error" id="errorGender"></div>
+
+    <p>About Yourself:</p>
+    <textarea name="AboutYourself" required></textarea>
+    <div class="error" id="errorAboutYourself"></div>
+
+    <p>Languages You Know:</p>
+    <label><input type="checkbox" name="knownLanguages[]" value="C" />C</label>
+    <label><input type="checkbox" name="knownLanguages[]" value="Java" />Java</label>
+    <label><input type="checkbox" name="knownLanguages[]" value="Python" />Python</label>
+    <label><input type="checkbox" name="knownLanguages[]" value="JavaScript" />JavaScript</label>
+    <label><input type="checkbox" name="knownLanguages[]" value="HTML" />HTML</label>
+    <div class="error" id="errorKnownLanguages"></div>
+
+    <p>Interested Language:</p>
+    <label><input type="radio" name="interestedLanguage" value="C" />C</label>
+    <label><input type="radio" name="interestedLanguage" value="Java" />Java</label>
+    <label><input type="radio" name="interestedLanguage" value="Python" />Python</label>
+    <label><input type="radio" name="interestedLanguage" value="JavaScript" />JavaScript</label>
+    <label><input type="radio" name="interestedLanguage" value="HTML" />HTML</label>
+    <div class="error" id="errorInterestedLanguage"></div>
+
+    <p>Internship Duration:</p>
+    <select name="dropdown" required>
+      <option value="">-- Select --</option>
+      <option value="3 Months">3 Months</option>
+      <option value="6 Months">6 Months</option>
+      <option value="9 Months">9 Months</option>
+      <option value="1 Year">1 Year</option>
+    </select>
+    <div class="error" id="errorDropdown"></div>
+
+    <p>College Name:</p>
+    <input type="text" name="CollegeName" required />
+    <div class="error" id="errorCollegeName"></div>
+
+    <p>College Location:</p>
+    <input type="text" name="Location" required />
+    <div class="error" id="errorLocation"></div>
+
+    <p>Upload Your Photo:</p>
+    <input type="file" name="fileupload" accept="image/*,application/pdf" required />
+    <div class="error" id="errorFileupload"></div>
+
+    <input type="submit" value="Submit" />
+  </form>
+
+ <script>
+  const form = document.getElementById("internshipForm");
+  const passwordInput = document.getElementById("password");
+  const confirmPasswordInput = document.getElementById("Confirmpassword");
+
+  function showError(name, message) {
+    name = name.replace("[]", "");
+    const el = document.getElementById("error" + name);
+    if (el) el.textContent = message;
+  }
+
+  function clearError(name) {
+    name = name.replace("[]", "");
+    const el = document.getElementById("error" + name);
+    if (el) el.textContent = "";
+  }
+
+  passwordInput.addEventListener("input", () => {
+    const password = passwordInput.value;
+    const hasNumber = /\d/.test(password);
+    const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    if (password.length < 6 || !hasNumber || !hasSymbol) {
+      showError("Password", "Must be ≥6 chars & include a number and symbol.");
+    } else {
+      clearError("Password");
+    }
+    checkPasswordMatch();
+  });
+
+  confirmPasswordInput.addEventListener("input", checkPasswordMatch);
+
+  function checkPasswordMatch() {
+    const password = passwordInput.value;
+    const confirm = confirmPasswordInput.value;
+
+    if (confirm && password !== confirm) {
+      showError("Confirmpassword", "Passwords do not match.");
+    } else {
+      clearError("Confirmpassword");
+    }
+  }
+
+  function validateField(name) {
+    const value = form.elements[name]?.value || "";
+    if (!value.trim()) {
+      showError(name, "This field is required.");
+      return false;
+    }
+
+    if (name === "Email" && !/^[^@]+@[^@]+\.[^@]+$/.test(value)) {
+      showError(name, "Enter a valid email address.");
+      return false;
+    }
+
+    if (name === "MobileNumber" && !/^[6-9]\d{9}$/.test(value)) {
+      showError(name, "Enter a valid 10-digit mobile number.");
+      return false;
+    }
+
+    clearError(name);
+    return true;
+  }
+
+  function validateRadio(name) {
+    const selected = form.querySelector(`input[name="${name}"]:checked`);
+    if (!selected) {
+      showError(name, "Please select an option.");
+      return false;
+    } else {
+      clearError(name);
+      return true;
+    }
+  }
+
+  function validateCheckbox(name) {
+    const selected = form.querySelectorAll(`input[name="${name}"]:checked`);
+    if (selected.length === 0) {
+      showError(name, "Please select at least one option.");
+      return false;
+    } else {
+      clearError(name);
+      return true;
+    }
+  }
+
+  function validateFile(name) {
+    const file = form.elements[name].files;
+    if (!file.length) {
+      showError(name, "Please upload your Photo.");
+      return false;
+    } else {
+      clearError(name);
+      return true;
+    }
+  }
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    let valid = true;
+    [
+      "Name",
+      "Email",
+      "MobileNumber",
+      "Age",
+      "AboutYourself",
+      "CollegeName",
+      "Location",
+      "dropdown"
+    ].forEach(field => {
+      if (!validateField(field)) valid = false;
+    });
+
+    const pwError = document.getElementById("errorPassword").textContent;
+    const cpwError = document.getElementById("errorConfirmpassword").textContent;
+    if (pwError || cpwError || !passwordInput.value || !confirmPasswordInput.value) valid = false;
+
+    if (!validateRadio("gender")) valid = false;
+    if (!validateCheckbox("knownLanguages[]")) valid = false;
+    if (!validateRadio("interestedLanguage")) valid = false;
+    if (!validateFile("fileupload")) valid = false;
+
+    if (!valid) return;
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("http://localhost:3000/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const text = await response.text();
+      if (response.ok && text.includes("successfully")) {
+        alert("🎉 Your application has been submitted successfully!");
+        form.reset();
+      } else {
+        alert("❌ Submission failed. Please try again.");
+      }
+    } catch (error) {
+      alert("⚠️ Network error! Please check your connection or backend server.");
+      console.error(error);
+    }
+  });
+</script>
+</body>
+</html>
