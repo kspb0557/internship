@@ -2,7 +2,7 @@
   "dependencies": {
     "@sendgrid/mail": "^8.1.6",
     "body-parser": "^2.2.0",
-    "cloudinary": "^2.8.0",
+    "cloudinary": "^1.41.3",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
